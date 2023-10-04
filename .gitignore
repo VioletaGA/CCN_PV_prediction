@@ -1,0 +1,11 @@
+coordenadas_municipios.csv
+imagen_mayo.png
+*.ini
+TFM Entregables
+Codigo - Violeta
+*.ipynb_checkpoints
+*__pycache__
+Datos/Salida tratamiento tiempo
+Datos/Salida extraccion tiempo
+Datos/Imagenes_generadas
+Datos/dataset_train.json
