@@ -3,4 +3,4 @@ Creación del dataset y entrenamiento de una red CNN que predice la producción 
 
 Abre Demo.ipynb para ver una demo del código
 
-Abre cnn_modelo_reducido.ipynb para ver una demo del entrenamiento de la red
+Abre cnn_modelo_reducido.ipynb para ver una demo del entrenamiento de la red, ejecutar siempre antes Demo.ipynb 
