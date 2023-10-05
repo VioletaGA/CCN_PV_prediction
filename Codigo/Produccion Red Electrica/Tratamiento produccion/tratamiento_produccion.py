@@ -4,8 +4,9 @@
 #Fecha: 09/2023
 ############################################################
 #Filtrar información descargada de producción solar de Red Eléctrica localiza en 
-#\Codigo\Produccion Red Electrica\Extraccion produccion\extraccion_produccion.csv
-#Generar nuevo archivo en '\Codigo\Produccion Red Electrica\Extraccion produccion\tratamiento_produccion_filtrado_json.json'
+#/Datos/extraccion_produccion.csv
+#Generar nuevo archivo en 'Datos/produccion_por_provincia_y_fecha.json'
+# WARNING: Ejecutar .py en Codigo/Produccion Red Electrica/Tratamiento produccion
 ############################################################
 
 import requests
@@ -25,11 +26,11 @@ from tqdm import tqdm
 import pytz
 import ephem
 import datetime
-
+os.chdir("../../../")
 
 # Carga datos de la producción solar de Red eléctrica extraidos en el código extraccion_produccion.py (extraccion_produccion.csv)
 # Creamos un nuevo archivo  con la información filtrada por las horas de día
-input_file='input_file'#'Produccion Red Electrica/Extraccion produccion/extraccion_produccion.csv'
+input_file='Datos/extraccion_produccion.csv'#'Produccion Red Electrica/Extraccion produccion/extraccion_produccion.csv'
 data_df = pd.read_csv(input_file, sep=";", header=0)
 
 data_df['datetime']=pd.to_datetime(data_df['datetime'])
@@ -83,13 +84,13 @@ data_filtrado_df=data_df.loc[:,['id',	'geoid',	'geoname',	'value',	'datetime']]
 
 # Crea un json con un valor de producción por hora en formato diccionario con 47 valores, uno para cada provincia
 def obtener_dataset_produccion(fechas, output_file):
-    """
-    Crea un dataset con un registro de producción por fecha con 47 valores y lo guarda en un archivo JSON.
+  """
+  Crea un dataset con un registro de producción por fecha con 47 valores y lo guarda en un archivo JSON.
 
-    :param fechas: Las fechas para las cuales se obtendrán los datos de producción.
-    :param output_file: El nombre del archivo de salida donde se guardará el dataset en formato JSON.
-    :return: Un DataFrame con el dataset de producción generado.
-    """
+  :param fechas: Las fechas para las cuales se obtendrán los datos de producción.
+  :param output_file: El nombre del archivo de salida donde se guardará el dataset en formato JSON.
+  :return: Un DataFrame con el dataset de producción generado.
+  """
 
   array_append=[]
 
